@@ -1,26 +1,23 @@
-package seedu.address.model.person.supplier;
+package seedu.address.model.person.employee;
 
 import java.util.Comparator;
 
-/**
- * Represents a class to that generates supplier comparators
- */
-public class SupplierComparator {
+public class EmployeeComparator {
 
     /**
      * Generates a default name comparator in ascending order.
      * @return A name comparator that sorts in ascending order.
      */
-    public static Comparator<Supplier> getDefaultComparator() {
+    public static Comparator<Employee> getDefaultComparator() {
         return (s1, s2) -> s1.getName().fullName.toLowerCase().compareToIgnoreCase(s2.getName().fullName);
     }
 
     /**
      * Generates a name comparator based on the provided order of sorting.
      * @param isAscending True if sorting is to be done in ascending order.
-     * @return A name comparator with type supplier.
+     * @return A name comparator with type employee.
      */
-    public static Comparator<Supplier> getNameComparator(boolean isAscending) {
+    public static Comparator<Employee> getNameComparator(boolean isAscending) {
         return (s1, s2) -> {
             if (isAscending) {
                 return s1.getName().fullName.toLowerCase().compareToIgnoreCase(s2.getName().fullName);
@@ -33,9 +30,9 @@ public class SupplierComparator {
     /**
      * Generates an address comparator based on the provided order of sorting.
      * @param isAscending True if sorting is to be done in ascending order.
-     * @return An address comparator with type supplier.
+     * @return An address comparator with type employee.
      */
-    public static Comparator<Supplier> getAddressComparator(boolean isAscending) {
+    public static Comparator<Employee> getAddressComparator(boolean isAscending) {
         return (s1, s2) -> {
             if (isAscending) {
                 return s1.getAddress().value.toLowerCase().compareToIgnoreCase(s2.getAddress().value);
@@ -48,9 +45,9 @@ public class SupplierComparator {
     /**
      * Generates an email comparator based on the provided order of sorting.
      * @param isAscending True if sorting is to be done in ascending order.
-     * @return An email comparator with type supplier.
+     * @return An email comparator with type employee.
      */
-    public static Comparator<Supplier> getEmailComparator(boolean isAscending) {
+    public static Comparator<Employee> getEmailComparator(boolean isAscending) {
         return (s1, s2) -> {
             if (isAscending) {
                 return s1.getEmail().value.toLowerCase().compareToIgnoreCase(s2.getEmail().value);
@@ -63,9 +60,9 @@ public class SupplierComparator {
     /**
      * Generates a phone comparator based on the provided order of sorting.
      * @param isAscending True if sorting is to be done in ascending order.
-     * @return A phone comparator with type supplier.
+     * @return A phone comparator with type employee.
      */
-    public static Comparator<Supplier> getPhoneComparator(boolean isAscending) {
+    public static Comparator<Employee> getPhoneComparator(boolean isAscending) {
         return (s1, s2) -> {
             if (isAscending) {
                 return s1.getPhone().value.compareToIgnoreCase(s2.getPhone().value);
@@ -76,35 +73,46 @@ public class SupplierComparator {
     }
 
     /**
-     * Generates a supplyType comparator based on the provided order of sorting.
+     * Generates a Salary comparator based on the provided order of sorting.
      * @param isAscending True if sorting is to be done in ascending order.
-     * @return A supplyType comparator with type supplier.
+     * @return A Salary comparator with type employee.
      */
-    public static Comparator<Supplier> getSupplyTypeComparator(boolean isAscending) {
+    public static Comparator<Employee> getSalaryComparator(boolean isAscending) {
         return (s1, s2) -> {
             if (isAscending) {
-                return s1.getSupplyType().supplyType.toLowerCase()
-                        .compareToIgnoreCase(s2.getSupplyType().supplyType);
+                return Integer.parseInt(s1.getSalary().currentSalary) - Integer.parseInt(s2.getSalary().currentSalary);
             } else {
-                return s2.getSupplyType().supplyType.toLowerCase()
-                        .compareToIgnoreCase(s1.getSupplyType().supplyType);
+                return Integer.parseInt(s2.getSalary().currentSalary) - Integer.parseInt(s1.getSalary().currentSalary);
             }
         };
     }
 
     /**
-     * Generates a deliveryDetail comparator based on the provided order of sorting.
+     * Generates a leaves comparator based on the provided order of sorting.
      * @param isAscending True if sorting is to be done in ascending order.
-     * @return A deliveryDetail comparator with type supplier.
+     * @return A leaves comparator with type employee.
      */
-    public static Comparator<Supplier> getDeliveryDetailsComparator(boolean isAscending) {
+    public static Comparator<Employee> getLeavesComparator(boolean isAscending) {
         return (s1, s2) -> {
             if (isAscending) {
-                return s1.getDeliveryDetails().deliveryDetails
-                        .compareTo(s2.getDeliveryDetails().deliveryDetails);
+                return Integer.parseInt(s1.getLeaves().currentLeaves) - Integer.parseInt(s2.getLeaves().currentLeaves);
             } else {
-                return s2.getDeliveryDetails().deliveryDetails
-                        .compareTo(s1.getDeliveryDetails().deliveryDetails);
+                return Integer.parseInt(s2.getLeaves().currentLeaves) - Integer.parseInt(s1.getLeaves().currentLeaves);
+            }
+        };
+    }
+
+    /**
+     * Generates a job title comparator based on the provided order of sorting.
+     * @param isAscending True if sorting is to be done in ascending order.
+     * @return A job title comparator with type employee.
+     */
+    public static Comparator<Employee> getJobTitleComparator(boolean isAscending) {
+        return (s1, s2) -> {
+            if (isAscending) {
+                return s1.getJobTitle().jobTitle.compareToIgnoreCase(s2.getJobTitle().jobTitle);
+            } else {
+                return s2.getJobTitle().jobTitle.compareToIgnoreCase(s1.getJobTitle().jobTitle);
             }
         };
     }

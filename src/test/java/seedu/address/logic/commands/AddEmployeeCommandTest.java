@@ -175,6 +175,21 @@ public class AddEmployeeCommandTest {
         }
 
         @Override
+        public void setEmployeeComparator(Comparator<Employee> employeeComparator) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ObservableList<Employee> getSortableEmployeeList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void resetEmployeeListToDefaultSortState() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public boolean hasReservation(Reservation reservation) {
             throw new AssertionError("This method should not be called.");
         }
@@ -216,6 +231,21 @@ public class AddEmployeeCommandTest {
 
         @Override
         public void updateFilteredCustomerList(Predicate<Customer> predicate) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void setCustomerComparator(Comparator<Customer> customerComparator) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ObservableList<Customer> getSortableCustomerList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void resetCustomerListToDefaultSortState() {
             throw new AssertionError("This method should not be called.");
         }
 

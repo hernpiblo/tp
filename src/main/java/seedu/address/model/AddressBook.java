@@ -83,6 +83,14 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
+     * Sets the employee comparator to sort the employee list.
+     * @param employeeComparator The comparator to sort the employee list.
+     */
+    public void setEmployeeComparator(Comparator<Employee> employeeComparator) {
+        employees.setComparator(employeeComparator);
+    }
+
+    /**
      * Replaces the contents of the customer list with {@code customers}.
      * {@code customers} must not contain duplicate customers.
      */
@@ -144,6 +152,28 @@ public class AddressBook implements ReadOnlyAddressBook {
         customers.remove(key);
     }
 
+    /**
+     * Sets the customer comparator to sort the customer list.
+     * @param customerComparator The comparator to sort the customer list.
+     */
+    public void setCustomerComparator(Comparator<Customer> customerComparator) {
+        customers.setComparator(customerComparator);
+    }
+
+    /**
+     * Returns a sortable customer list
+     */
+    public ObservableList<Customer> getSortableCustomerList() {
+        return customers.asSortableObservableList();
+    }
+
+    /**
+     * Resets the customer list sorting to its default state.
+     */
+    public void resetCustomerListToDefaultSortState() {
+        customers.resetCustomerListToDefaultSortState();
+    }
+
     /// supplier level operations
     /**
      * Returns true if a supplier with the same identity as {@code supplier} exists in the address book.
@@ -182,7 +212,21 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
-     * Returns a sortable supplier list
+     * Returns a sortable employee list
+     */
+    public ObservableList<Employee> getSortableEmployeeList() {
+        return employees.asSortableObservableList();
+    }
+
+    /**
+     * Resets the employee list sorting to its default state.
+     */
+    public void resetEmployeeListToDefaultSortState() {
+        employees.resetEmployeeListToDefaultSortState();
+    }
+
+    /**
+     * Returns a sortable supplier list`
      */
     public ObservableList<Supplier> getSortableSupplierList() {
         return suppliers.asSortableObservableList();

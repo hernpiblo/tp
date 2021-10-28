@@ -115,6 +115,16 @@ public interface Model {
      * the address book.
      */
     void setCustomer(Customer target, Customer editedCustomer);
+
+    /** Sets the comparator for the customer list */
+    void setCustomerComparator(Comparator<Customer> customerComparator);
+
+    /** Returns a sortable view of the customer list */
+    ObservableList<Customer> getSortableCustomerList();
+
+    /** Resets the customer list to its default sorting state */
+    void resetCustomerListToDefaultSortState();
+
     /**
      * Replaces the given employee {@code target} with {@code editedEmployee}.
      * {@code target} must exist in the address book.
@@ -122,6 +132,9 @@ public interface Model {
      * same as another existing employee in the address book.
      */
     void setEmployee(Employee target, Employee editedEmployee);
+
+    /** Sets the comparator for the employee list */
+    void setEmployeeComparator(Comparator<Employee> employeeComparator);
 
     /**
      * Returns true if the same reservation exists in the database.
@@ -181,6 +194,13 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredCustomerList(Predicate<Customer> predicate);
+
+    /** Returns a sortable view of the employee list */
+    ObservableList<Employee> getSortableEmployeeList();
+
+    /** Resets the employee list to its default sorting state */
+    void resetEmployeeListToDefaultSortState();
+
     /**
      * Updates the filter of the filtered Employee list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
