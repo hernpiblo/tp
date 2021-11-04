@@ -65,8 +65,8 @@ Dangerous or potentially negative actions are displayed here
     - `addC`: Add a customer
     - Format: `addC n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS lp/LOYALTYPOINTS [alg/ALLERGIES] [sr/SPECIAL_REQUESTS] [t/TAG]...`
     - Example: `addC n/John Doe p/87654321 e/e12345@u.nus.edu a/Clementi lp/1000`  
-
-
+  
+  
 6. Refer to the [Features](#features) below for details of each command. If you want to have an overview of all the commands, you can refer to [Command Summary](#command-summary) section.
 
 ### Command syntax
@@ -784,8 +784,8 @@ Sets the number of tables and size of each table in the restaurant.
 
 Format: `settables LIST_OF_TABLE_SIZES`
   * `LIST_OF_TABLE_SIZES` is formatted as any combination of the following:
-    * **<TABLE_SIZE>**
-    * **<TABLE_SIZE>x<NUMBER_OF_TABLE_WITH_THIS_SIZE>**,<br>
+    * **\<TABLE_SIZE\>**
+    * **\<TABLE_SIZE\>x\<NUMBER_OF_TABLE_WITH_THIS_SIZE\>**,<br>
       each comma-separated from the next.
 
 Example:
