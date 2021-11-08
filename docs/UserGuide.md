@@ -111,7 +111,7 @@ This is the list of all prefixes used in RHRH, as well as their corresponding pa
 ### Date Time Formatting
 
 * All fields that require **both** `Date` and `Time` in RHRH are accepted if they follow the format below, where the 
-  order of date and time are interchangeable.
+  order of date and time are interchangeable. (Except for `check` command)
 However, time strictly follows the `24 hours` format.
 
 | Acceptable Formats | Examples |
@@ -773,7 +773,7 @@ Format: `listR`
 
 :information_source: **Notes:**<br>
 
-* Reservation list will be sorted in ascending date time order, i.e. the reservation with the largest date time will be on top.
+* Reservation list will be sorted in descending date time order, i.e. the reservation with the largest date time will be on top.
 * RHRH will switch to the reservation list and list all reservations no matter which list you are current viewing.
 * You can also switch to the reservation list manually by clicking the `View` tab in the menu bar and selecting
   `Reservations`.
@@ -810,7 +810,7 @@ Example:
     (i.e. RHRH must contain tables before making a reservation)
 
 
-* TABLE_SIZE and NUMBER_OF_TABLE_WITH_THIS_SIZE has to be a positive integer
+* \<TABLE_SIZE\> and \<NUMBER_OF_TABLE_WITH_THIS_SIZE\> has to be a positive integer
 
 </div>
 

@@ -673,248 +673,803 @@ Priorities: High, Low
 
 **MSS**
 
-1. User keys in the customer’s details.
-
+1. User enters add customer command and keys in the customer’s details.
 2. Customer is added to RHRH.
-
 3. System confirms that the customer has been added.
 
    Use case ends.
 
 **Extensions**
 
-* 1a. User keys in incorrect information or format.
-    * 1a1. System displays an error, and the recommended format for adding a customer.
-      
-      Use case ends.
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
 
-* 2a. Customer already exists in RHRH.
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
+
+* 1b. System detects invalid command arguments
+  * 1b1. System displays error corresponding to the invalid argument and provides an example on the accepted format 
+    and arguments.
+  * 1b2. User enters command arguments again.
+
+Steps 1b1 - 1b2 are repeated until all command arguments are valid. <br>
+Use case resumes from step 2.
+
+* 2a. Customer to add already exists in RHRH.
     * 2a1. System displays an error, and that the customer already exists in RHRH.
+    * 2a2. User enters customer details again.
 
-      Use case ends.
+Steps 2a1 - 2a2 are repeated until the customer to be added is unique. <br>
+Use case resumes from step 3.
 
 **Use case (UC02): Add an Employee**
 
-{:no_toc}
-
 **MSS**
 
-1. User keys in the employee’s details.
-
+1. User enters add employee command and keys in the employee’s details.
 2. Employee is added to RHRH.
-
 3. System confirms that the employee has been added.
 
    Use case ends.
 
 **Extensions**
 
-* 1a. User keys in incorrect information or format.
-    * 1a1. System displays an error, and the recommended format for adding an employee.
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
 
-      Use case ends.
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
 
-* 2a. Employee already exists in RHRH.
+* 1b. System detects invalid command arguments.
+    * 1b1. System displays error corresponding to the invalid argument and provides an example on the accepted format
+      and arguments.
+    * 1b2. User enters command arguments again.
+
+Steps 1b1 - 1b2 are repeated until all command arguments are valid. <br>
+Use case resumes from step 2.
+
+* 2a. Employee to add already exists in RHRH.
     * 2a1. System displays an error, and that the employee already exists in RHRH.
+    * 2a2. User enters employee details again.
 
-      Use case ends.
-
-
+Steps 2a1 - 2a2 are repeated until the employee to be added is unique. <br>
+Use case resumes from step 3.
 
 **Use case (UC03): Add a Supplier**
 
-{:no_toc}
-
 **MSS**
 
-1. User keys in the supplier’s details.
-
+1. User enters add supplier command and keys in the supplier’s details.
 2. Supplier is added to RHRH.
-
 3. System confirms that the supplier has been added.
 
    Use case ends.
 
 **Extensions**
 
-* 1a. User keys in incorrect information or format.
-    * 1a1. System displays an error, and the recommended format for adding a supplier.
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again
 
-      Use case ends.
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
 
-* 2a. Supplier already exists in RHRH.
+* 1b. System detects invalid command arguments.
+    * 1b1. System displays error corresponding to the invalid argument and provides an example on the accepted format
+      and arguments.
+    * 1b2. User enters command arguments again.
+
+Steps 1b1 - 1b2 are repeated until all command arguments are valid. <br>
+Use case resumes from step 2.
+
+* 2a. System detects that supplier to add already exists in RHRH.
     * 2a1. System displays an error, and that the supplier already exists in RHRH.
+    * 2a2. User enters supplier details again.
 
-      Use case ends.
+Steps 2a1 - 2a2 are repeated until the supplier to be added is unique. <br>
+Use case resumes from step 3.
 
 **Use case (UC04): Add a reservation**
 
 **MSS**
 
-1. User requests to add a new reservation and keys in reservations details.
-2. Reservation with the given details is added.
+1. User enters add reservation command and keys in reservations details.
+2. System confirms that reservation with the given details is added.
 
    Use case ends
 
 **Extensions**
 
-* 1a. Tables are not set yet
-    * 1a1. RHRH requests user to set the tables.
-    * 1a2. User <u>sets the tables (UC <span style="color:red">{{FILL IN LATER}}</span>)</u>
+* 1a. Tables are not set yet.
+    * 1a1. System requests user to set the tables.
+    * 1a2. User <u>sets the tables (UC21)</u>
 
     Use case resumes from step 1.
 
-
-* 1b. RHRH detects missing details/incorrect format in the command entered.
-    * 1b1. RHRH requests user to enter the command again with correct and sufficient details.
+* 1b. System detects invalid command format.
+    * 1b1. System displays an error, showing unknown command.
     * 1b2. User enters command again.
 
-  Steps 1b1 - 1b2 are repeated until the command is correctly formatted.
+Steps 1b1 - 1b2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
 
-    Use case resumes from step 2.
+* 1c. System detects invalid command arguments.
+    * 1c1. System displays error corresponding to the invalid argument and provides an example on the accepted format
+      and arguments.
+    * 1c2. User enters command arguments again.
 
-* 1c. RHRH is unable to find a reservation slot based on the date time entered.
-    * 1c1. RHRH informs the user that the reservation slot is taken.
-    * 1c2. User enters the command again with another date time.
+Steps 1c1 - 1c2 are repeated until the command arguments are valid. <br>
+Use case resumes from step 2.
 
-  Steps 1c1 - 1c2 are repeated until there is a reservation slot available.
+* 1d. System is unable to find a reservation slot based on the date time entered.
+    * 1d1. System informs the user that the reservation slot is taken.
+    * 1d2. User enters the command again with another date time.
 
-    Use case resumes from step 3.
+Steps 1d1 - 1d2 are repeated until there is a reservation slot available. <br>
+Use case resumes from step 2.
 
-**Use case (UC05): Edit a Customer**
-
-{:no_toc}
-
-**MSS**
-
-1. User enters the command string to edit a customer's field.
-2. System confirms that the customer has been added and shows the current fields of the customer.
-
-   Use case ends
-
-**Extensions**
-
-* 1a. User keys in invalid format
-    * 1a1. System displays an error, and the recommended format for editing a customer.
-
-      Use case ends
-* 1b. User keys in command without prefix
-    * 1b1. System displays an error that says that at least 1 field must be provided.
-
-      Use case ends
-
-**Use case (UC06): Edit an Employee**
+**Use case (UC05): List all customers/employees/suppliers/reservations**
 
 {:no_toc}
 
 **MSS**
 
-1. User enters the command string to edit a employee's field.
-2. System confirms that the employee has been edited and shows the current fields of the employee.
+1. User enters the command to list all customers/employees/suppliers/reservations.
+2. List of all customers/employees/suppliers/reservations is displayed in view.
 
-   Use case ends
+   Use case ends.
 
 **Extensions**
 
-* 1a. User keys in invalid format
-    * 1a1. System displays an error, and the recommended format for editing an employee.
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
 
-      Use case ends
-* 1b. User keys in command without prefix
-    * 1b1. System displays an error that says that at least 1 field must be provided.
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
 
-      Use case ends
-
-**Use case (UC07): Edit a Supplier**
+**Use case (UC06): Edit a Customer**
 
 {:no_toc}
 
 **MSS**
 
-1. User enters the command string to edit a supplier's field.
-2. System confirms that the supplier has been edited and shows the current fields of the supplier.
+1. User enters the command to edit a customer and details of the customer to be edited.
+2. The specified customer is edited in RHRH.
+3. System confirms that customer has been edited.
 
-   Use case ends
+   Use case ends.
 
 **Extensions**
 
-* 1a. User keys in invalid format
-    * 1a1. System displays an error, and the recommended format for editing a supplier.
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
 
-      Use case ends
-* 1b. User keys in command without prefix
-    * 1b1. System displays an error that says that at least 1 field must be provided.
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
 
-      Use case ends
+* 1b. System detects invalid command arguments.
+    * 1b1. System displays error corresponding to the invalid argument and provides an example on the accepted format
+      and arguments.
+    * 1b2. User enters command arguments again.
 
-**Use case (UC08): Edit a reservation**
+Steps 1b1 - 1b2 are repeated until all command arguments are valid. <br>
+Use case resumes from step 2.
+
+* 1c. System detects that customer to edit does not exist in RHRH.
+    * 1c1. System displays an error that no such customer index exist in RHRH.
+    * 1c2. User enters customer index again.
+
+Steps 1c1 - 1c2 are repeated until the employee to be added is unique. <br>
+Use case resumes from step 2.
+
+* 1d. System detects that editing of current customer would cause duplicate customers in RHRH.
+    * 1d1. System displays an error that customer already exists in RHRH.
+    * 1d2. User enters customer index again.
+
+Steps 1d1 - 1d2 are repeated until the customer to be added is unique. <br>
+Use case resumes from step 2.
+
+**Use case (UC07): Edit an Employee**
+
+{:no_toc}
+
+**MSS**
+
+1. User enters the command to edit an employee and details of the employee to be edited.
+2. The specified employee is edited in RHRH.
+3. System confirms that employee has been edited.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
+
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
+
+* 1b. System detects invalid command arguments.
+    * 1b1. System displays error corresponding to the invalid argument and provides an example on the accepted format
+      and arguments
+    * 1b2. User enters command arguments again.
+
+Steps 1b1 - 1b2 are repeated until all command arguments are valid. <br>
+Use case resumes from step 2.
+
+* 1c. System detects that employee to edit does not exist in RHRH.
+    * 1c1. System displays an error that no such employee index exist in RHRH.
+    * 1c2. User enters employee index again.
+
+Steps 1c1 - 1c2 are repeated until the employee to be added is unique. <br>
+Use case resumes from step 2.
+
+* 1d. System detects that editing of current employee would cause duplicate employees in RHRH.
+    * 1d1. System displays an error that employee already exists in RHRH.
+    * 1d2. User enters employee index again.
+
+Steps 1d1 - 1d2 are repeated until the employee to be added is unique. <br>
+Use case resumes from step 2.
+
+**Use case (UC08): Edit a Supplier**
+
+{:no_toc}
+
+**MSS**
+
+1. User enters the command to edit a supplier and details of the supplier to be edited.
+2. The specified supplier is edited in RHRH.
+3. System confirms that supplier has been edited.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
+
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
+
+* 1b. System detects invalid command arguments.
+    * 1b1. System displays error corresponding to the invalid argument and provides an example on the accepted format
+      and arguments.
+    * 1b2. User enters command arguments again.
+
+Steps 1b1 - 1b2 are repeated until all command arguments are valid. <br>
+Use case resumes from step 2.
+
+* 1c. System detects that supplier to edit does not exist in RHRH.
+    * 1c1. System displays an error that no such supplier index exist in RHRH.
+    * 1c2. User enters supplier index again.
+
+Steps 1c1 - 1c2 are repeated until the supplier to be added is unique. <br>
+Use case resumes from step 2.
+
+* 1d. System detects that editing of current supplier would cause duplicate suppliers in RHRH.
+    * 1d1. System displays an error that supplier already exists in RHRH.
+    * 1d2. User enters supplier index again.
+
+Steps 1d1 - 1d2 are repeated until the supplier to be added is unique. <br>
+Use case resumes from step 2.
+
+**Use case (UC09): Edit a reservation**
 
 **MSS**
 
 1. User enters the command to edit reservation fields.
-2. System confirms that the supplier has been edited and shows the current fields of the supplier.
+2. The specified reservation is edited in RHRH.
+3. System confirms that the reservation has been edited and shows the edited reservation.
 
    Use case ends
 
 **Extensions**
 
-* 1a. User keys in invalid format
-    * 1a1. System displays an error, and the recommended format for editing a reservation.
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
 
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
 
-      Use case ends
-* 1b. User keys in command without prefix
-    * 1b1. System displays an error that says that at least 1 field must be provided.
+* 1b. System detects invalid command arguments.
+    * 1b1. System displays error corresponding to the invalid argument and provides an example on the accepted format
+      and arguments.
+    * 1b2. User enters command arguments again.
 
-      Use case ends
+Steps 1b1 - 1b2 are repeated until all command arguments are valid. <br>
+Use case resumes from step 2.
 
-**Use case (UC09): Search for reservation availability**
+* 1c. System detects that reservation to edit does not exist in RHRH.
+    * 1c1. System displays an error that no such reservation index exist in RHRH.
+    * 1c2. User enters reservation index again.
+
+Steps 1c1 - 1c2 are repeated until the reservation to be added is unique. <br>
+Use case resumes from step 2.
+
+**Use case (UC10): Delete a Customer**
 
 **MSS**
 
-1. User requests to search for reservation availability at a date and time.
-2. RHRH shows the availability for the indicated date time.
+1. User enters the command to delete a customer.
+2. The specified customer is deleted from RHRH.
+3. System confirms that the customer has been deleted.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
+
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
+
+* 1b. System detects invalid customer index.
+    * 1b1. System displays error corresponding to the invalid index and provides an example on the accepted format
+      and arguments.
+    * 1b2. User enters customer index again.
+
+Steps 1b1 - 1b2 are repeated until all command arguments are valid. <br>
+Use case resumes from step 2.
+
+* 1c. System detects that customer to delete does not exist in RHRH.
+    * 1c1. System displays an error that no such customer index exist in RHRH.
+    * 1c2. User enters customer index again
+
+Steps 1c1 - 1c2 are repeated until the customer to delete exists in RHRH. <br>
+Use case resumes from step 2.
+
+**Use case (UC11): Delete an Employee**
+
+**MSS**
+
+1. User enters the command to delete an employee.
+2. The specified employee is deleted from RHRH.
+3. System confirms that the employee has been deleted.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
+
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
+
+* 1b. System detects invalid employee index.
+    * 1b1. System displays error corresponding to the invalid index and provides an example on the accepted 
+      format and arguments.
+    * 1b2. User enters employee index again.
+
+Steps 1b1 - 1b2 are repeated until all command arguments are valid. <br>
+Use case resumes from step 2.
+
+* 1c. System detects that employee to delete does not exist in RHRH.
+    * 1c1. System displays an error that no such employee index exist in RHRH.
+    * 1c2. User enters employee index again
+
+Steps 1c1 - 1c2 are repeated until the employee to delete exists in RHRH. <br>
+Use case resumes from step 2.
+
+
+**Use case (UC12): Delete a Supplier**
+
+**MSS**
+
+1. User enters the command to delete a supplier.
+2. The specified supplier is deleted from RHRH.
+3. System confirms that the supplier has been deleted.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
+
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
+
+* 1b. System detects invalid supplier index.
+    * 1b1. System displays error corresponding to the invalid index and provides an example on the accepted format
+      and arguments.
+    * 1b2. User enters supplier index again.
+
+Steps 1b1 - 1b2 are repeated until all command arguments are valid. <br>
+Use case resumes from step 2.
+
+* 1c. System detects that supplier to delete does not exist in RHRH.
+    * 1c1. System displays an error that no such supplier index exist in RHRH.
+    * 1c2. User enters supplier index again
+
+Steps 1c1 - 1c2 are repeated until the supplier to delete exists in RHRH. <br>
+Use case resumes from step 2.
+
+**Use case (UC13): Delete a Reservation**
+
+**MSS**
+
+1. User enters the command to delete a reservation.
+2. The specified reservation is deleted from RHRH.
+3. System confirms that the reservation has been deleted.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
+
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
+
+* 1b. System detects invalid reservation index.
+    * 1b1. System displays error corresponding to the invalid index and provides an example on the accepted format
+      and arguments.
+    * 1b2. User enters reservation index again.
+
+Steps 1b1 - 1b2 are repeated until all command arguments are valid. <br>
+Use case resumes from step 2.
+
+* 1c. System detects that reservation to delete does not exist in RHRH.
+    * 1c1. System displays an error that no such reservation index exist in RHRH.
+    * 1c2. User enters reservation index again
+
+Steps 1c1 - 1c2 are repeated until the reservation to delete exists in RHRH. <br>
+Use case resumes from step 2.
+
+**Use case (UC14): Find Customers in RHRH**
+
+**MSS**
+
+1. User enters the command to find the customers in RHRH based on a sequence of keywords.
+2. The customer list is filtered in RHRH based on matching of keywords.
+3. System confirms that the customer list has been filtered and displays number of filtered customers.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
+
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
+
+* 1b. System does not detect any keywords.
+    * 1b1. System displays error corresponding to the empty keywords and provides an example on the accepted format
+      and arguments.
+    * 1b2. User enters command again.
+
+Steps 1b1 - 1b2 are repeated until all command arguments are valid. <br>
+Use case resumes from step 2.
+
+* 1c. System is unable to find a customer whose details contain the specified keywords
+   * 1c1. System tells user that no customers can be found
    
+     Use case ends.
+
+**Use case (UC15): Find Employees in RHRH**
+
+**MSS**
+
+1. User enters the command to find the employees in RHRH based on a sequence of keywords.
+2. The employee list is filtered in RHRH based on matching of keywords.
+3. System confirms that the employee list has been filtered and displays number of filtered employees.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
+
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
+
+* 1b. System does not detect any keywords.
+    * 1b1. System displays error corresponding to the empty keywords and provides an example on the accepted format
+      and arguments.
+    * 1b2. User enters command arguments again.
+
+Steps 1b1 - 1b2 are repeated until all command arguments are valid. <br>
+Use case resumes from step 2.
+
+* 1c. System is unable to find an employee whose details contain the specified keywords
+   * 1c1. System tells user that no employees can be found
+   
+     Use case ends.
+
+**Use case (UC16): Find Suppliers in RHRH**
+
+1. User enters the command to find the suppliers in RHRH based on a sequence of keywords.
+2. The supplier list is filtered in RHRH based on matching of keywords.
+3. System confirms that the supplier list has been filtered and displays number of filtered suppliers.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
+
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
+
+* 1b. System does not detect any keywords.
+    * 1b1. System displays error corresponding to the empty keywords and provides an example on the accepted format
+      and arguments.
+    * 1b2. User enters command arguments again.
+
+Steps 1b1 - 1b2 are repeated until all command arguments are valid. <br>
+Use case resumes from step 2.
+
+* 1c. System is unable to find a supplier whose details contain the specified keywords
+   * 1c1. System tells user that no suppliers can be found
+   
+     Use case ends.
+
+**Use case (UC17): Check for reservations made for a date and time**
+
+**MSS**
+
+1. User enters the command to check the reservations made for a date and time.
+2. System shows the reservations that are on that date and time.
+
    Use case ends.
 
 **Extensions:**
 
-* 1a. User requests to search for reservation availability at a date.
-    * 1a1. RHRH shows all the available slots on the indicated date.
+* 1a. System detects invalid command format of date/time.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again. 
       
-    Use case ends.
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
+
+* 1b. System detects that there are no reservations made for that date and time
+    * 1b1. No reservations are displayed
+
+      Use case ends
+
+**Use case (UC18): Check for reservations made for a date**
+
+**MSS**
+
+1. User enters the command to check the reservations made for a date.
+2. System shows the reservations that are on that date.
+
+   Use case ends
+
+**Extensions:**
+
+* 1a. System detects invalid command format of date/time.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
+  
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
+
+* 1b. System detects that there are no reservations made for that date
+    * 1b1. No reservations are displayed
+
+      Use case ends
+
+**Use case (UC19): Check for reservations made for a time on the current date**
+
+**MSS**
+
+1. User enters the command to check the reservations made for a time on the current date.
+2. System shows the reservations that are on that time on the current date
+
+   Use case ends
+
+**Extensions:**
+
+* 1a. System detects invalid command format of date/time.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
+  
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
+
+* 1b. System detects that there are no reservations made for that time on the current date
+    * 1b1. No reservations are displayed
+
+      Use case ends
+
+**Use case (UC20): Get customer who made a reservation in RHRH**
+
+**MSS**
+
+1. User enters the command to get the customer who made a specified reservation.
+2. The corresponding customer information is shown.
+3. System confirms that the corresponding customer is listed.
+
+   Use case ends.
+
+**Extension**
+
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
+
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
+
+* 1b. System detects invalid reservation index.
+    * 1b1. System displays error corresponding to the invalid index and provides an example on the accepted format
+      and arguments.
+    * 1b2. User enters reservation index again.
+
+Steps 1b1 - 1b2 are repeated until all command arguments are valid. <br>
+Use case resumes from step 2.
+
+* 1c. System detects that reservation to get customer information does not exist in RHRH.
+    * 1c1. System displays an error that no such reservation index exist in RHRH.
+    * 1c2. User enters reservation index again
+
+Steps 1c1 - 1c2 are repeated until the reservation to get customer information exists in RHRH. <br>
+Use case resumes from step 2.
 
 
-* 1b. User requests to search for reservation availability at a time.
-    * 1b1. RHRH shows the availability for the indicated time today
-      
-    Use case ends.
+**Use case (UC21): Set the tables of the restaurant inside the app**
+
+**MSS**
+
+1. User enters the command to set the tables in RHRH.
+2. System shows the number of tables set in the restaurant.
+
+   Use case ends
+
+**Extensions:**
+
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
+
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
 
 
-* 1c. RHRH detects information missing from the command entered.
-    * 1c1. RHRH requests for the missing details to be filled in.
-    * 1c2. User enters missing data.
+**Use case (UC22): Sort Customers in RHRH**
 
-    Steps 1c1 - 1c2 are repeated until the date/time is correctly formatted.
+**MSS**
 
-    Use case resumes from step 2.
+1. User enters the command to sort the customer list in RHRH based on a sorting type and order.
+2. The customer list is sorted in RHRH according to specified sorting type and order.
+3. System confirms that the customers have been sorted.
 
-* 1d. RHRH detects an incorrect format of date/time.
-    * 1d1. RHRH requests for the format to be corrected.
-    * 1d2. User enters the command again.
+   Use case ends.
 
-    Steps 1d1 - 1d2 are repeated until the command is correctly formatted.
+**Extensions**
 
-    Use case resumes from step 2.
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
 
-*{More to be added}*
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
+
+* 1b. System detects invalid customer sorting type and order.
+    * 1b1. System displays error corresponding to the invalid argument and provides an example on the accepted format
+      and arguments.
+    * 1b2. User enters command arguments again.
+
+Steps 1b1 - 1b2 are repeated until all command arguments are valid. <br>
+Use case resumes from step 2.
+
+* 1c. System detects that there are no customers to sort in the current list.
+    * 1c1. System displays an error that there are no customers to sort in the current list.
+  
+      Use case ends.
+
+**Use case (UC23): Sort Employees in RHRH**
+
+**MSS**
+
+1. User enters the command to sort the employee list in RHRH based on a sorting type and order.
+2. The employee list is sorted in RHRH according to specified sorting type and order.
+3. System confirms that the employees have been sorted.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
+
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
+
+* 1b. System detects invalid employee sorting type and order.
+    * 1b1. System displays error corresponding to the invalid argument and provides an example on the accepted format
+      and arguments.
+    * 1b2. User enters command arguments again.
+
+Steps 1b1 - 1b2 are repeated until all command arguments are valid. <br>
+Use case resumes from step 2.
+
+* 1c. System detects that there are no employees to sort in the current list.
+    * 1c1. System displays an error that there are no employees to sort in the current list.
+  
+      Use case ends.
+
+**Use case (UC24): Sort Suppliers in RHRH**
+
+**MSS**
+
+1. User enters the command to sort the supplier list in RHRH based on a sorting type and order.
+2. The supplier list is sorted in RHRH according to specified sorting type and order.
+3. System confirms that the suppliers have been sorted.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
+
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
+
+* 1b. System detects invalid supplier sorting type and order.
+    * 1b1. System displays error corresponding to the invalid argument and provides an example on the accepted format
+      and arguments.
+    * 1b2. User enters command arguments again.
+
+Steps 1b1 - 1b2 are repeated until all command arguments are valid. <br>
+Use case resumes from step 2.
+
+* 1c. System detects that there are no suppliers to sort in the current list.
+    * 1c1. System displays an error that there are no suppliers to sort in the current list.
+  
+      Use case ends.
+
+    
+**Use case (UC25): Reset all customers/employees/suppliers in default sorting state**
+
+{:no_toc}
+
+**MSS**
+
+1. User enters the command to reset all customers/employees/suppliers in default sorting state.
+2. List of all customers/employees/suppliers in default sorting state is displayed in view.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. System detects invalid command format.
+    * 1a1. System displays an error, showing unknown command.
+    * 1a2. User enters command again.
+
+Steps 1a1 - 1a2 are repeated until the command is correctly formatted. <br>
+Use case resumes from step 2.
 
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
 2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-4.  Should not be stored in a **Database Management system**(DBMS).
+4.  Should not be stored in a **Database Management System** (DBMS).
 5.  Should be stored *locally* and can be *manually* edited by the user.
 6.  Program should be delivered to users in a single **JAR** file.
 7.  Program should be able to run with just a *double-click* and no CLI required.
@@ -925,21 +1480,29 @@ Priorities: High, Low
 12.  Developer Guide and User Guide should be *PDF-friendly*(no expandable panels, embedded videos, animated GIFs etc.).
 13.  Does not require a server component as the software will not perform automated tasks.
 
-*{More to be added}*
-
 ### Glossary
 
-* **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Contact**: A contact containing details about the particular person
-* **Customer**: One of the types of contact, used to represent a customer of the restaurant
-* **Loyalty** points: Points stored by each customer
-* **Employee**: One of the types of contact, used to represent an employee of the restaurant
-* **Employment type** : Used to distinguish the different categories of employees (Part-time, Full-time etc.)
-* **Shift**: Time slot that employee is supposed to be working
-* **Supplier**: One of the types of contact, used to represent a supplier of the restaurant
-* **Table**: Contains a size and a table ID, and is used to ensure that each reservation has an available table
-* **Reservation**: Reservations can be made by customers for a specific timeslot in the restaurant
-* **Waiting list**: List of customers who are unable to get a reservation due to maxed-out reservations
+* **Address** : Address of the contact
+* **Allergies** : Any allergies of the customer
+* **Contact** : A contact containing details about the particular person
+* **Customer** : One of the types of contact, used to represent a customer of the restaurant
+* **Delivery Details** : The delivery dates/times of a supplier
+* **Leaves** : Leaves of the employee
+* **Loyalty points** : Points stored by each customer
+* **Email** : Email of the contact
+* **Employee** : One of the types of contact, used to represent an employee of the restaurant
+* **Job title** : The different job titles of employees (e.g. Part-time, Full-time etc.)
+* **Mainstream OS** : Windows, Linux, Unix, OS-X
+* **Name** : Name of the contact
+* **Phone** : Phone number of the contact
+* **Salary** : Salary of an employee
+* **Shift** : Time slot that employee is supposed to be working
+* **Special Request** : Additional information of the customer
+* **Supplier** : One of the types of contact, used to represent a supplier of the restaurant
+* **Supply Type** : The type of food supply a supplier provides
+* **Remark** : Additional information of a reservation
+* **Table** : Contains a size and a table ID, and is used to ensure that each reservation has an available table
+* **Tag** : Additional information to label a contact with
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -958,18 +1521,25 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   2. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   2. Double-click the jar file <br>
+   Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
-1. Saving window preferences
+2. Saving window preferences
 
    1. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
    2. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
+
+3. Exiting the app
+
+    1. While the app is still running, enter the `exit` command. <br>
+       Expected: The app closes.
       
 ### Adding a customer/employee/supplier
 
 1. Add a Customer to the Customer list
+
     1. Test case: `addC n/John Doe p/87654321 e/e12345@u.nus.edu a/30 Geylang Drive lp/1000 alg/Kiwi sr/outdoors` <br>
         Expected: Customer John Doe has been added to the Customer list. Details of the Customer John Doe will be shown on the result display area.
     2. Test case: `addC n/John Doey` <br>
@@ -990,6 +1560,7 @@ testers are expected to do more *exploratory* testing.
         Expected: Customer will not be added, and an error message `SpecialRequests names should be alphanumeric` will be displayed due to * being non-alphanumeric.
        
 2. Add an Employee to the Employee List
+
     1. Test case: `addE n/John Doe p/87654321 e/e12345@u.nus.edu a/30 Geylang Drive sal/4000 jt/Head Chef l/14 sh/2021-12-08 0800` <br>
         Expected: Employee John Doe has been added to the Employee List. Details of Employee John Doe will be shown on the result display area.
     2. Test case: `addE n/John Doey` <br>
@@ -1004,6 +1575,7 @@ testers are expected to do more *exploratory* testing.
         Expected: Employee will not be added, and an error message that shows the user the correct format for entering shifts will be displayed, due to the error in formatting for time.
        
 3. Add a Supplier to the Supplier List
+
     1. Test case: `addS n/John Doe p/87654321 e/e12345@u.nus.edu a/30 Geylang Drive dd/2021-12-08 1200 st/Beef` <br>
         Expected: Supplier John Doe has been added to the Supplier List. Details of the Supplier John Doe will be shown on the result display area.
     2. Test case: `addS n/John Doey` <br>
@@ -1015,7 +1587,6 @@ testers are expected to do more *exploratory* testing.
     5. Test case: `addS n/John Doe p/87654321 e/e12345@u.nus.edu a/30 Geylang Drive dd/2021-12-08 1200 st/#@$Beef` <br>
         Expected: Supplier will not be added, and an error message `Supply types should only contain alphanumeric characters and spaces, and it should not be blank` will be shown due to the presence of non-alphanumerical characters in the supply type.
         
-   
 
 ### Adding a reservation
 
@@ -1031,11 +1602,23 @@ testers are expected to do more *exploratory* testing.
       * `PHONE` is valid (belong to a customer) but `DATE_TIME` is invalid (of incorrect format or the restaurant is full at that time)<br>
       Expected: No reservation is added. Error details shown in the status message. Status bar remains the same.
 
+
 2. The tables are not set yet.
    
    1. Prerequisite: the `tables` array in the data file is empty.
    2. Repeat the same test cases as 1.2 and 1.3.<br>
       Expected: No reservation is added. Error message shown, telling users to set tables before use.
+
+### Listing customers/employees/suppliers/reservations
+
+1. Switching the view to display the customer/employee/supplier/reservation list. 
+
+   1. Test case: `listC` / `listE` / `listS` / `listR` <br>
+         Expected: List of all customers/employees/suppliers/reservations will be displayed. Success message 
+      `Switched to X View` will be displayed (where X refers to either `Customer`,
+      `Employee`, `Supplier` or `Reservation` depending on which `list` command is used).
+   2. Test case: `lisC` / `leestE` / ... <br>
+      Expected: Any form of misspelling will result in no changes to the current view. Error message `Unknown command` will be displayed.
 
 ### Deleting a customer/employee/supplier/reservation
 
@@ -1043,18 +1626,159 @@ testers are expected to do more *exploratory* testing.
 
    1. Prerequisites: List all customers/employees/suppliers/reservations using the `listC`/`listE`/`listS`/`listR` command.
    2. Test case: `deleteC 1`/`deleteE 1`/`deleteS 1`/`deleteR 1` <br>
-      Expected: First customer/employee/supplier/reservation is deleted from the list. Details of the deleted customer/employee/supplier/reservation shown in the status message. Timestamp in the status bar is updated.
-   1. Test case: `deleteC 0`/`deleteE 0`/`deleteS 0`/`deleteR 0`<br>
-      Expected: Nobody is deleted. Error details shown in the status message. Status bar remains the same.
-   2. Other incorrect delete commands to try: `deleteS`, `delete 1`, `deleteC x` (where x is larger than the customer list size), `...` <br>
-      Expected: Similar to previous.
+      Expected: First customer/employee/supplier/reservation is deleted from the list. Details of the deleted 
+      customer/employee/supplier/reservation shown in the results display.
+   3. Test case: `deleteC 0`/`deleteE -1`/`deleteS -50`/`deleteR 0`<br>
+      Expected: Nobody is deleted. Error details shown in the results display with a result message `Invalid comamnd 
+      format...`
+   4. Other incorrect delete commands to try: `deleteS`, `deleteC x`, `delete 1` (where x is an integer larger than the 
+      customer list size) <br>
+      Expected: Nobody is deleted. Error details shown in the results display. Entering `deleteS` will 
+      produce the same error message as test case 1.3 while entering `deleteC x` (where x is an integer larger than the
+      customer list size) and  `delete 1` will produce the error message `Customer index is invalid` and `Unknown 
+      command` respectively.
       
+
 2. Deleting a customer/employee/supplier/reservation while customer list is filtered.
    
    1. Prerequisites: Filter display list by using the `findC KEYWORD`/`findE KEYWORD`/`findS KEYWORD`/`check DATE` command,
       where `KEYWORD` must exist in at least 1 of the customers/employees/suppliers and there must be at least 1 reservation on `DATE`.
    2. Repeat the same test cases as 1.2 to 1.4.
-      
+
+### Editing a customer
+
+1. Editing a customer while all customers are being shown.
+
+    1. Prerequisites: List all customers using the `listC` command.
+    2. Test case: `editC 1 n/Chetwin lp/5000` <br>
+       Expected: First customer in the list will be updated to have "Chetwin" and "5000" as his `name` and `loyalty points` respectively. Details of the edited
+       customer shown in the results display.
+    3. Test case: `editC -1 e/chetwinlow@gmail.com` <br>
+       Expected: Nobody is edited. Error details shown in the results display with a result message `Invalid comamnd
+       format...`
+    4. Test case: `editC 1` <br>
+       Expected: Nobody is edited. Error details shown in the results display with a result message `At least one field to edit must be provided.`
+    5. Other incorrect edit commands to try: `editC ` / `editC f/invalid prefix` / `edit 1` / `editC x n/john`(where x is larger than the customer
+       list size) <br>
+       Expected: Nobody is edited. Error details shown in the results display. Entering the first 2 commands will
+       produce the same error message as test case 1.3 while entering `edit 1` will produce the error message
+       `Unknown command` and the last one resulting in error message `The customer index provided is invalid`
+
+3. Editing a customer while customer list is filtered.
+
+    1. Prerequisites: Filter display list by using the `findC KEYWORD` command,
+       where `KEYWORD` must exist in at least 1 of the customers.
+    2. Repeat the same test cases as 1.2 to 1.4.
+
+### Editing a supplier
+
+1. Editing a supplier while all suppliers are being shown.
+
+    1. Prerequisites: List all suppliers using the `listS` command.
+    2. Test case: `editS 1 n/Chetwin st/chicken` <br>
+       Expected: First customer in the list will be updated to have "Chetwin" and "chicken" as his `name` and `supply type` respectively. Details of the edited
+       supplier shown in the results display.
+    3. Test case: `editS -1 e/chetwinlow@gmail.com` <br>
+       Expected: Nobody is edited. Error details shown in the results display with a result message `Invalid comamnd
+       format...`
+    4. Test case: `editS 1` <br>
+       Expected: Nobody is edited. Error details shown in the results display with a result message `At least one field to edit must be provided.`
+    5. Other incorrect edit commands to try: `editS ` / `editS f/invalid prefix` / `edit 1` / `editS x n/john`(where x is larger than the supplier
+       list size) <br>
+       Expected: Nobody is edited. Error details shown in the results display. Entering the first 2 commands will
+       produce the same error message as test case 1.3 while entering `edit 1` will produce the error message
+       `Unknown command` and the last one resulting in error message `The supplier index provided is invalid`
+
+2. Editing a supplier while supplier list is filtered.
+
+    1. Prerequisites: Filter display list by using the `findS KEYWORD` command,
+       where `KEYWORD` must exist in at least 1 of the suppliers.
+    2. Repeat the same test cases as 1.2 to 1.4.
+
+### Editing an employee
+
+1. Editing an employee while all employees are being shown.
+
+    1. Prerequisites: List all employees using the `listE` command.
+    2. Test case: `editE 1 n/Chetwin s/5000` <br>
+       Expected: First employee in the list will be updated to have "Chetwin" and "5000" as his `name` and `salary` respectively. Details of the edited
+       employee shown in the results display.
+    3. Test case: `editE -1 e/chetwinlow@gmail.com` <br>
+       Expected: Nobody is edited. Error details shown in the results display with a result message `Invalid comamnd
+       format...`
+    4. Test case: `editE 1` <br>
+       Expected: Nobody is edited. Error details shown in the results display with a result message `At least one field to edit must be provided.`
+    5. Other incorrect edit commands to try: `editE ` / `editE f/invalid prefix` / `edit 1` / `editE x n/john`(where x is larger than the employee
+       list size) <br>
+       Expected: Nobody is edited. Error details shown in the results display. Entering the first 2 commands will
+       produce the same error message as test case 1.3 while entering `edit 1` will produce the error message
+       `Unknown command` and the last one resulting in error message `The employee index provided is invalid`
+
+2. Editing an employee while employee list is filtered.
+
+    1. Prerequisites: Filter display list by using the `findE KEYWORD` command,
+       where `KEYWORD` must exist in at least 1 of the employees.
+    2. Repeat the same test cases as 1.2 to 1.4.
+
+### Finding customers
+
+1. Finding the customers
+
+    1. Test case: `findC Chetwin` <br>
+       Expected: The customer list is filtered to only show customers that match "Chetwin"(case-insensitive) in any of its fields. Success message shown in results display.
+    2. Test case: `findC Chetwin 15` <br>
+       Expected: The customer list is filtered to only show customers that match "Chetwin"(case-insensitive) and "15" in any of its fields cumulatively. Success message shown in results display.
+    3. Test case: `findC Chetwin 15 913045` <br>
+       Expected: The customer list is filtered to only show customers that match "Chetwin"(case-insensitive) and "15" and "913045" in any of its fields cumulatively. Success message shown in results display.
+    4. Test case: `findC ` <br>
+       Expected: Customer list is not filtered. Error details shown in the result display, with a result message `Invalid command format`
+
+### Finding suppliers
+
+1. Finding the suppliers
+
+    1. Test case: `findS Chetwin` <br>
+       Expected: The supplier list is filtered to only show customers that match "Chetwin"(case-insensitive) in any of its fields. Success message shown in results display.
+    2. Test case: `findS Chetwin 15` <br>
+       Expected: The  list is filtered to only show suppliers that match "Chetwin"(case-insensitive) and "15" in any of its fields cumulatively. Success message shown in results display.
+    3. Test case: `findS Chetwin 15 913045` <br>
+       Expected: The supplier list is filtered to only show customers that match "Chetwin"(case-insensitive) and "15" and "913045" in any of its fields cumulatively. Success message shown in results display.
+    4. Test case: `findS ` <br>
+       Expected: Supplier list is not filtered. Error details shown in the result display, with a result message `Invalid command format`
+
+### Finding employees
+
+1. Finding the employees
+
+    1. Test case: `findE Chetwin` <br>
+       Expected: The employee list is filtered to only show customers that match "Chetwin"(case-insensitive) in any of its fields. Success message shown in results display.
+    2. Test case: `findE Chetwin 15` <br>
+       Expected: The employee list is filtered to only show suppliers that match "Chetwin 15"(case-insensitive) in any of its fields. Success message shown in results display.
+    3. Test case: `findE Chetwin 15 913045` <br>
+       Expected: The employee list is filtered to only show customers that match "Chetwin 15 913045" in any of its fields. Success message shown in results display.
+    4. Test case: `findE ` <br>
+       Expected: Supplier list is not filtered. Error details shown in the result display, with a result message `Invalid command format`
+
+
+### Get the corresponding customer of a reservation
+
+1. Getting the corresponding customer of a reservation while all reservations are shown
+
+    1. Prerequisites: List all reservations using `listR`
+    2. Test case: `getC 1`<br>
+       Expected: The customer who made the first reservation is displayed.
+    3. Test case: `getC 0`<br>
+       Expected: No customer is shown. Error details are shown in the status message. Status bar remains the same.
+    4. Other incorrect commands to try: `getC`, `getC -1`, `getC x` (where x is larger than the customer list size), `...` <br>
+       Expected: Similar to previous.
+
+2. Getting the corresponding customer of a reservation while reservation list is filtered.
+
+    1. Prerequisites: Filter display reservation list using `check DATE`, where there must be at least 1 reservation
+       on `DATE`.
+    2. Repeat the same test cases as 1.2 to 1.4.
+
+
 ### Get the corresponding customer of a reservation
 
 1. Getting the corresponding customer of a reservation while all reservations are shown
@@ -1067,7 +1791,159 @@ testers are expected to do more *exploratory* testing.
    4. Other incorrect commands to try: `getC`, `getC -1`, `getC x` (where x is larger than the customer list size), `...` <br>
       Expected: Similar to previous.
       
-1. Getting the corresponding customer of a reservation while reservation list is filtered.
+2. Getting the corresponding customer of a reservation while reservation list is filtered.
 
-    1. Prerequisites: Filter display reservation list using `check DATE`, where there must be at least 1 resevation on `DATE`.
+    1. Prerequisites: Filter display reservation list using `check DATE`, where there must be at least 1 reservation 
+       on `DATE`.
     2. Repeat the same test cases as 1.2 to 1.4. 
+      
+### Setting the tables
+
+1. Test case: `settables 10x4,2,2,1`<br>
+   Expected: Result display shows 7 tables are set and all reservations are removed.
+
+2. Test case: `settables 10x0`/`settables 0x10`/`settables 0`/`settables abc`<br>
+   Expected: No tables set. Error details shown in the result display, with a result message `Invalid Command Format! ...`
+      
+### Checking for reservations 
+
+1. Getting the reservations that are for the specified date time, when the date time has at least 1 reservation
+
+    1. Prerequisites: Date time has at least 1 reservation
+    2. Test case: `check 2021-12-24 2000`<br>
+       Expected: Reservations on 24 Dec 2021, 8pm are displayed, result display shows how many reservations there are on 24 Dec 2021, 8pm
+
+2. Getting the reservations that are for the specified date time, when the date time has no reservations
+
+    1. Prerequisites: Date time has no reservations
+    2. Test case: `check 2021-12-24 0400`<br>
+       Expected: No Reservations are displayed since no reservations are on 24 Dec 2021, 4am, result display shows 0 reservations
+
+3. Getting the reservations that are for the specified date, when the date has at least 1 reservation
+
+    1. Prerequisites: Date has at least 1 reservation
+    2. Test case: `check 2021-12-24`<br>
+       Expected: Reservations on 24 Dec 2021 are displayed, result display shows how many reservations there are on 24 Dec 2021
+
+4. Getting the reservations that are for the specified date, when the date has no reservations
+
+    1. Prerequisites: Date has no reservations
+    2. Test case: `check 2021-12-01`<br>
+       Expected: No Reservations are displayed since no reservations are on 1 Dec 2021, result display shows 0 reservations
+
+5. Getting the reservations that are for the current date at a specified time, when the time has at least 1 reservation
+
+    1. Prerequisites: Time has at least 1 reservation
+    2. Test case: `check 2000`<br>
+       Expected: Reservations on 24 Dec 2021 are displayed, result display shows how many reservations there are on 24 Dec 2021
+
+6. Getting the reservations that are for the current date at a specified time, when the time has no reservations
+
+    1. Prerequisites: Time has no reservations
+    2. Test case: `check 0400`<br>
+       Expected: No Reservations are displayed since no reservations are on the current date at 4am, result display shows 0 reservations
+    
+7. Other incorrect commands to try: `check 2500`, `check abc`, `check`
+   Expected: Error details shown in the result display, with a result message `Invalid Command Format! ...`
+
+
+
+### Sorting the customer list
+
+1. Sorting the customer list while all customers are being shown
+
+    1. Prerequisites: List all customers using `listC` and use `resetC` to reset any previous sorting that you may 
+       have applied. Note that customers are sorted by name in ascending order by default.
+    2. Test case: `sortC by/n o/d` <br>
+        Expected: The customer list is sorted by name in descending order. Success message shown in results display.
+    3. Test case: `sortC by/lp o/a` <br>
+       Expected: The customer list is sorted by loyalty points in ascending order. Success message shown in results display.
+    4. Test case: `sortC by/n o/a by/lp` <br>
+       Expected: The customer list is sorted by loyalty points in ascending order. Success message shown in results display.
+    5. Test case: `sortC by/lp o/a o/d`
+       Expected: The customer list is sorted by loyalty points in descending order. Success message shown in results display.
+    6. Test case: `sortC by/lp o/n` <br>
+       Expected: Customer list is not sorted. Error details shown in the result display, with a result message `Sorting order can only be either ascending or descending, and it should not be blank`
+    7. Test case: `sortC by/dd o/d` <br>
+       Expected: Customer list not sorted. Error details shown in the result display, with a result message `Sort by 
+       can only be 1 of the customer fields...`
+   
+2. Sorting the customer list while the customer list is filtered.
+
+   1. Prerequisites: Filter and display the customer list using `findC KEYWORDS`
+   2. Test case: `sortC by/n o/d` when filtered customer list is `empty` <br>
+      Expected: Customer list is not sorted. Error details shown in the result display, with a result message 
+      `Customer list is currently empty!`
+   3. Repeat the same test cases as 1.2 to 1.7. The filtered customer list will sort as per expected in test cases 1.2 to 1.7
+
+### Sorting the employee list
+
+1. Sorting the employee list while all employees are being shown
+
+    1. Prerequisites: List all employees using `listE` and use `resetE` to reset any previous sorting that you may
+       have applied. Note that employees are sorted by name in ascending order by default.
+    2. Test case: `sortE by/sal o/a` <br>
+       Expected: The employee list is sorted by salary in ascending order. Success message shown in results display.
+    3. Test case: `sortE by/n o/d` <br>
+       Expected: The employee list is sorted by name in descending order. Success message shown in results display.
+    4. Test case: `sortE by/n o/a by/sal` <br>
+       Expected: The employee list is sorted by salary in ascending order. Success message shown in results display.
+    5. Test case: `sortE by/n o/a o/d`
+       Expected: The employee list is sorted by name in descending order. Success message shown in results display.
+    6. Test case: `sortE by/e o/n` <br>
+       Expected: Employee list is not sorted. Error details shown in the result display, with a result message 
+       `Sorting order can only be either ascending or descending, and it should not be blank`
+    7. Test case: `sortE by/dd o/d` <br>
+       Expected: Employee list not sorted. Error details shown in the result display, with a result message `Sort by
+       can only be 1 of the employee fields...`
+
+2. Sorting the employee list while the employee list is filtered.
+
+    1. Prerequisites: Filter and display the employee list using `findE KEYWORDS`
+    2. Test case: `sortE by/n o/d` when filtered employee list is `empty` <br>
+       Expected: Employee list is not sorted. Error details shown in the result display, with a result message
+       `Employee list is currently empty!`
+    3. Repeat the same test cases as 1.2 to 1.7. The filtered employee list will sort as per expected in test cases 
+       1.2 to 1.7
+
+### Sorting the Supplier list
+
+1. Sorting the supplier list while all suppliers are being shown
+
+    1. Prerequisites: List all suppliers using `listS` and use `resetS` to reset any previous sorting that you may
+       have applied. Note that suppliers are sorted by name in ascending order by default.
+    2. Test case: `sortS by/dd o/d` <br>
+       Expected: The supplier list is sorted by delivery details in descending order. Success message shown in results display.
+    3. Test case: `sortS by/st o/a` <br>
+       Expected: The supplier list is sorted by supply type in name order. Success message shown in results display.
+    4. Test case: `sortS by/n o/a by/dd` <br>
+       Expected: The supplier list is sorted by delivery details in ascending order. Success message shown in results display.
+    5. Test case: `sortS by/n o/a o/d`
+       Expected: The supplier list is sorted by name in descending order. Success message shown in results display.
+    6. Test case: `sortS by/a o/n` <br>
+       Expected: Supplier list is not sorted. Error details shown in the result display, with a result message
+       `Sorting order can only be either ascending or descending, and it should not be blank`
+    7. Test case: `sortS by/lp o/d` <br>
+       Expected: Supplier list not sorted. Error details shown in the result display, with a result message `Sort by
+       can only be 1 of the supplier fields...`
+
+2. Sorting the supplier list while the supplier list is filtered.
+
+    1. Prerequisites: Filter and display the supplier list using `findE KEYWORDS`
+    2. Test case: `sortS by/dd o/a` when filtered supplier list is `empty` <br>
+       Expected: Supplier list is not sorted. Error details shown in the result display, with a result message
+       `Supplier list is currently empty!`
+    3. Repeat the same test cases as 1.2 to 1.7. The filtered supplier list will sort as per expected in test cases
+       1.2 to 1.7
+
+### Resetting the customer/employee/supplier
+
+1. Switching the view to display the customer/employee/supplier list to its default sorting order (by `name` in 
+   `ascending` order).
+
+    1. Test case: `resetC` / `resetE` / `resetS` <br>
+       Expected: List of all customers/employees/suppliers in default ordering will be displayed. Success message `X 
+       list sorting has been reset to default (name).` will be displayed (where X refers to either `Customer`, 
+       `Employee` or `Supplier` depending on which `reset` command is used).
+    2. Test case: `reesetC` / `resagE` / ... <br>
+       Expected: Any form of misspelling will result in no changes to the current view. Error message `Unknown command` will be displayed.
